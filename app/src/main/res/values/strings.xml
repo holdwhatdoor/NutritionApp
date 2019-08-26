@@ -1,0 +1,16 @@
+<resources>
+    // Title strings
+    <string name="app_name">NutritionApp</string>
+    <string name="app_title">Nutrition</string>
+
+
+    // Header strings
+    <string name="page_title">Title</string>
+
+
+    // Main page strings
+    <string name="diet_click">Diet</string>
+    <string name="exercise_click">Workout</string>
+
+
+</resources>

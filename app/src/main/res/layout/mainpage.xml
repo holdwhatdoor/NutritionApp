@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <include
+                android:id="@+id/header_bar"
+                layout="@layout/headerbar" />
+
+            <RelativeLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/header_bar">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true">
+
+                    <TextView
+                        android:id="@+id/diet_lbl"
+                        android:layout_width="212dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/diet_click"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/exercise_lbl"
+                        android:layout_width="212dp"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/diet_lbl"
+                        android:text="@string/exercise_click"
+                        android:textAlignment="center" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
