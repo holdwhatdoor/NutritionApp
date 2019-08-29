@@ -25,22 +25,34 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true">
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp">
 
                     <TextView
                         android:id="@+id/diet_lbl"
-                        android:layout_width="212dp"
+                        android:layout_width="190dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/button"
                         android:text="@string/diet_click"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textSize="24dp" />
 
                     <TextView
                         android:id="@+id/exercise_lbl"
-                        android:layout_width="212dp"
+                        android:layout_width="190dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
                         android:layout_toRightOf="@id/diet_lbl"
+                        android:background="@drawable/button"
                         android:text="@string/exercise_click"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textSize="24dp" />
+
 
                 </RelativeLayout>
 
