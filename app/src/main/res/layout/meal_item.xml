@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="60dp">
+    android:layout_height="60dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:drawable/dialog_holo_light_frame">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -36,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="80dp"
                 android:layout_toRightOf="@id/cals_lbl"
-                android:text="5000" />
+                android:text="@string/cal_val" />
 
             <TextView
                 android:id="@+id/time_eaten"
@@ -44,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="15dp"
-                android:text="Time Eaten" />
+                android:text="@string/meal_time" />
 
 
         </RelativeLayout>
@@ -62,7 +64,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15sp"
                 android:layout_marginRight="5sp"
-                android:background="@color/colorGrey"
                 android:text="@string/carb_lbl" />
 
             <TextView
@@ -71,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10sp"
                 android:layout_toRightOf="@id/carb_lbl"
-                android:text="400g" />
+                android:text="@string/carb_val" />
 
 
             <TextView
@@ -80,7 +81,6 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/carbs"
                 android:layout_marginRight="5sp"
-                android:background="@color/colorGrey"
                 android:text="@string/pro_lbl" />
 
             <TextView
@@ -89,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10sp"
                 android:layout_toRightOf="@id/pro_lbl"
-                android:text="250g" />
+                android:text="@string/pro_val" />
 
 
             <TextView
@@ -98,7 +98,6 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/pro"
                 android:layout_marginRight="5sp"
-                android:background="@color/colorGrey"
                 android:text="@string/fat_lbl" />
 
             <TextView
@@ -106,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/fat_lbl"
-                android:text="100g" />
+                android:text="@string/fat_val" />
 
         </RelativeLayout>
 
@@ -114,7 +113,8 @@
             android:id="@+id/macros"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/nutrition_info">
+            android:layout_below="@id/nutrition_info"
+            android:background="@color/colorGrey">
 
             <TextView
                 android:id="@+id/mac_lbl"
@@ -123,7 +123,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="15sp"
                 android:layout_marginRight="5sp"
-                android:background="@color/colorGrey"
                 android:text="@string/macro_lbl" />
 
             <TextView
@@ -131,21 +130,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_toRightOf="@id/mac_lbl"
-                android:text="0%/"/>
+                android:text="@string/carb_mac_val"/>
 
             <TextView
                 android:id="@+id/mac_pro"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_toRightOf="@id/mac_carb"
-                android:text="0%/"/>
+                android:text="@string/pro_mac_val"/>
 
             <TextView
                 android:id="@+id/mac_fat"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_toRightOf="@id/mac_pro"
-                android:text="0%"/>
+                android:text="@string/fat_mac_val"/>
 
         </RelativeLayout>
 

@@ -15,10 +15,20 @@
 
     // Meal Item strings
     <string name="meal_name">Meal Name</string>
+    <string name="meal_time">Meal Time</string>
+
     <string name="cal_lbl">Calories: </string>
     <string name="carb_lbl">Carbs: </string>
     <string name="pro_lbl">Protein: </string>
     <string name="fat_lbl">Fat: </string>
+    <string name="cal_val">0</string>
+    <string name="carb_val">0g</string>
+    <string name="pro_val">0g</string>
+    <string name="fat_val">0g</string>
+
     <string name="macro_lbl">Macros: </string>
+    <string name="carb_mac_val">0%/</string>
+    <string name="pro_mac_val">0%/</string>
+    <string name="fat_mac_val">0%</string>
 
 </resources>
