@@ -11,12 +11,9 @@ public class MealEntity {
     // Table Key Columns
     @PrimaryKey(autoGenerate = true)
     private int mealId= 0;
-    @ForeignKey(entity = PortionEntity.class, parentColumns = "portionId", childColumns = "mealId")
-    private int portionId;
-    @ForeignKey(entity = MeasureTypeEntity.class, parentColumns = "measureTypeId", childColumns = "mealId")
-    private int measureTypeId;
     // Table Columns
     private String mealName;
+    private String mealItems;
     private Double mCals;
     private Double mCarbs;
     private Double mPro;
@@ -28,10 +25,9 @@ public class MealEntity {
 
     // Constructor, no primary key id
     @Ignore
-    public MealEntity(int portionId, int measureTypeId, String mealName, Double mCals, Double mCarbs, Double mPro,
+    public MealEntity(String mealItems, String mealName, Double mCals, Double mCarbs, Double mPro,
                       Double mFat){
-        this.portionId = portionId;
-        this.measureTypeId = measureTypeId;
+        this.mealItems = mealItems;
         this.mealName = mealName;
         this.mCals = mCals;
         this.mCarbs = mCarbs;
@@ -40,11 +36,10 @@ public class MealEntity {
     }
 
     // Constructor with primary key int id
-    public MealEntity(int mealId, int portionId, int measureTypeId, String mealName, Double mCals, Double mCarbs,
+    public MealEntity(int mealId, String mealItems, String mealName, Double mCals, Double mCarbs,
                       Double mPro, Double mFat){
         this.mealId = mealId;
-        this.portionId = portionId;
-        this.measureTypeId = measureTypeId;
+        this.mealItems = mealItems;
         this.mealName = mealName;
         this.mCals = mCals;
         this.mCarbs = mCarbs;
@@ -58,13 +53,7 @@ public class MealEntity {
         return mealId;
     }
 
-    public int getPortionId(){
-        return portionId;
-    }
-
-    public int getMeasureTypeId(){
-        return measureTypeId;
-    }
+    public String getMealItems() { return mealItems; }
 
     public String getMealName(){
         return mealName;
@@ -91,13 +80,7 @@ public class MealEntity {
         this.mealId = mealId;
     }
 
-    public void setPortionId(int portionId) {
-        this.portionId = portionId;
-    }
-
-    public void setMeasureTypeId(int measureTypeId) {
-        this.measureTypeId = measureTypeId;
-    }
+    public void setMealItems(String mealItems) { this.mealItems = mealItems; }
 
     public void setMealName(String mealName) {
         this.mealName = mealName;

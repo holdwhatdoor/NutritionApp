@@ -9,10 +9,10 @@ import java.util.List;
 @Dao
 public interface PortionDAO {
 
-    @Query("SELECT * FROM portion_table WHERE portionId = :id")
-    PortionEntity getPortionById(int id);
+    @Query("SELECT * FROM portioned_table WHERE portionedId = :id")
+    PortionedEntity getPortionById(int id);
 
-    @Query("SELECT * FROM portion_table ORDER BY portionId")
-    LiveData<List<PortionEntity>> getAll();
+    @Query("SELECT * FROM portioned_table ORDER BY portionedId")
+    LiveData<List<PortionedEntity>> getAll();
 
 }

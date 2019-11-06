@@ -14,7 +14,7 @@ public class AppRepository {
     // Live Data variables
     public LiveData<List<FoodEntity>> mFoods;
     public LiveData<List<MeasureTypeEntity>> mMeasureTypes;
-    public LiveData<List<PortionEntity>> mPortions;
+    public LiveData<List<PortionedEntity>> mPortions;
     public LiveData<List<MealEntity>> mMeals;
     public LiveData<List<ConsumedMealEntity>> mConsumed;
 
@@ -49,7 +49,7 @@ public class AppRepository {
         return mDb.measureTypeDAO().getAll();
     }
 
-    private LiveData<List<PortionEntity>> getAllPortions() {
+    private LiveData<List<PortionedEntity>> getAllPortions() {
         return mDb.portionDAO().getAll();
     }
 

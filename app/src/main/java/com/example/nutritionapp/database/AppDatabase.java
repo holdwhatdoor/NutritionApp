@@ -7,13 +7,13 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
-import com.example.nutritionapp.utilities.DateConverter;
+import com.example.nutritionapp.utilities.DataConverter;
 
 
-@Database(entities = {FoodEntity.class, MeasureTypeEntity.class, PortionEntity.class,  MealEntity.class,
+@Database(entities = {FoodEntity.class, MeasureTypeEntity.class, PortionedEntity.class,  MealEntity.class,
         ConsumedMealEntity.class},
         version = 1, exportSchema = false)
-@TypeConverters(DateConverter.class)
+@TypeConverters(DataConverter.class)
 public abstract class AppDatabase extends RoomDatabase {
 
     public static final String NUTRITION_DB = "AppDatabase.db";

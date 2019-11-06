@@ -34,9 +34,9 @@ public class FoodEntity {
     }
 
     // Constructor with primary key id
-    public FoodEntity(int foodID, String foodName, Double calories, Double carbs, Double protein, Double fat,
+    public FoodEntity(int foodId, String foodName, Double calories, Double carbs, Double protein, Double fat,
                       Double baseMeasure){
-        this.foodId = foodID;
+        this.foodId = foodId;
         this.foodName = foodName;
         this.calories = calories;
         this.carbs = carbs;

@@ -11,7 +11,7 @@ public class MeasureTypeEntity {
     @PrimaryKey(autoGenerate = true)
     private int measureTypeId = 0;
     // Table Columns
-    private String converterType;
+    private String measureType;
 
     // Empty constructor
     @Ignore
@@ -19,22 +19,22 @@ public class MeasureTypeEntity {
 
     // Constructor, no primary key id
     @Ignore
-    public MeasureTypeEntity(String converterType){
-        this.converterType = converterType;
+    public MeasureTypeEntity(String measureType){
+        this.measureType = measureType;
     }
 
     // Constructor with primary key id
-    public MeasureTypeEntity(int measureTypeId, String converterType){
+    public MeasureTypeEntity(int measureTypeId, String measureType){
         this.measureTypeId = measureTypeId;
-        this.converterType = converterType;
+        this.measureType = measureType;
     }
 
     public int getMeasureTypeId(){
         return measureTypeId;
     }
 
-    public String getConverterType(){
-        return converterType;
+    public String getMeasureType(){
+        return measureType;
     }
 
     // Setters
@@ -42,7 +42,7 @@ public class MeasureTypeEntity {
         this.measureTypeId = measureTypeId;
     }
 
-    public void setConverterType(String converterType) {
-        this.converterType = converterType;
+    public void setMeasureType(String measureType) {
+        this.measureType = measureType;
     }
 }

@@ -4,6 +4,8 @@ import android.widget.EditText;
 
 import androidx.room.TypeConverter;
 
+import com.example.nutritionapp.database.PortionedEntity;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,7 +13,45 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-public class DateConverter {
+public class DataConverter {
+
+    @TypeConverter
+    public static String arrayToString(PortionedEntity[] mealItems) {
+        String json = null;
+
+        if(mealItems == null){
+            return null;
+        } else if(mealItems.length == 1){
+            json.concat(convertPortionedItem(mealItems[0]));
+
+        } else {
+            for(int i = 0; i < mealItems.length; i++) {
+                json.concat(convertPortionedItem(mealItems[i]) + i + "...");
+            }
+        }
+
+        return json;
+    }
+
+    public static String convertPortionedItem(PortionedEntity mealItem) {
+        String portionString = null;
+
+        String portionId = Integer.toString(mealItem.getPortionedId());
+        String foodId = Integer.toString(mealItem.getFoodId());
+        String measId = Integer.toString(mealItem.getMeasureTypeId());
+        String descr = mealItem.getDescription();
+        String quantity = Double.toString(mealItem.getQuantity());
+        String cals = Double.toString(mealItem.getPCals());
+        String carbs = Double.toString(mealItem.getPCarbs());
+        String pro = Double.toString(mealItem.getPPro());
+        String fat = Double.toString(mealItem.getPFat());
+
+        portionString = portionId + "," + foodId + "," + measId + "," + descr + "," + quantity + "," +
+                cals + "," + carbs + "," + pro + "," + fat + "..";
+
+        return portionString;
+
+    }
 
     @TypeConverter
     public static Date toDate(Long timestamp){

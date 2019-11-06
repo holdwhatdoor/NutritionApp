@@ -5,13 +5,13 @@ import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "portion_table")
-public class PortionEntity {
+@Entity(tableName = "portioned_table")
+public class PortionedEntity {
 
     //Table Key Columns
     @PrimaryKey(autoGenerate = true)
-    private int portionId = 0;
-    @ForeignKey(entity = FoodEntity.class, parentColumns = "foodId", childColumns = "portionId")
+    private int portionedId = 0;
+    @ForeignKey(entity = FoodEntity.class, parentColumns = "foodId", childColumns = "portionedId")
     private int foodId;
     @ForeignKey(entity = MeasureTypeEntity.class, parentColumns = "measureTypeId", childColumns = "portionId")
     private int measureTypeId;
@@ -25,12 +25,12 @@ public class PortionEntity {
 
     // Empty constructor
     @Ignore
-    public PortionEntity(){}
+    public PortionedEntity(){}
 
     // Constructor, no primary key id
     @Ignore
-    public PortionEntity(int foodID, int measTypeID, Double quantity, String description, Double pCals,
-                         Double pCarbs, Double pPro, Double pFat){
+    public PortionedEntity(int foodID, int measTypeID, Double quantity, String description, Double pCals,
+                           Double pCarbs, Double pPro, Double pFat){
         this.foodId = foodID;
         this.measureTypeId = measTypeID;
         this.quantity = quantity;
@@ -42,9 +42,9 @@ public class PortionEntity {
     }
 
     // Constructor with primary key id
-    public PortionEntity(int portionId, int foodId, int measureTypeId, Double quantity, String description,
-                         Double pCals, Double pCarbs, Double pPro, Double pFat){
-        this.portionId = portionId;
+    public PortionedEntity(int portionedId, int foodId, int measureTypeId, Double quantity, String description,
+                           Double pCals, Double pCarbs, Double pPro, Double pFat){
+        this.portionedId = portionedId;
         this.foodId = foodId;
         this.measureTypeId = measureTypeId;
         this.quantity = quantity;
@@ -56,8 +56,8 @@ public class PortionEntity {
     }
 
     // Getters
-    public int getPortionId(){
-        return portionId;
+    public int getPortionedId(){
+        return portionedId;
     }
 
     public int getFoodId(){
@@ -93,8 +93,8 @@ public class PortionEntity {
     }
 
     // Setters
-    public void setPortionId(int portionId) {
-        this.portionId = portionId;
+    public void setPortionedId(int portionedId) {
+        this.portionedId = portionedId;
     }
 
     public void setFoodId(int foodId) {
