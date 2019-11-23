@@ -13,7 +13,7 @@ public class PortionedEntity {
     private int portionedId = 0;
     @ForeignKey(entity = FoodEntity.class, parentColumns = "foodId", childColumns = "portionedId")
     private int foodId;
-    @ForeignKey(entity = MeasureTypeEntity.class, parentColumns = "measureTypeId", childColumns = "portionId")
+    @ForeignKey(entity = MeasureTypeEntity.class, parentColumns = "measureTypeId", childColumns = "portionedId")
     private int measureTypeId;
     // Table Columns
     private Double quantity;

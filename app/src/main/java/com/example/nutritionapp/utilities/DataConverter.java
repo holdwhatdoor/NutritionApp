@@ -4,6 +4,8 @@ import android.widget.EditText;
 
 import androidx.room.TypeConverter;
 
+import com.example.nutritionapp.database.AppRepository;
+import com.example.nutritionapp.database.PortionDAO;
 import com.example.nutritionapp.database.PortionedEntity;
 
 import java.text.DateFormat;

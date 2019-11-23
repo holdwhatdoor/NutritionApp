@@ -12,8 +12,8 @@ public class MealEntity {
     @PrimaryKey(autoGenerate = true)
     private int mealId= 0;
     // Table Columns
+    private String portionedIds;
     private String mealName;
-    private String mealItems;
     private Double mCals;
     private Double mCarbs;
     private Double mPro;
@@ -25,9 +25,9 @@ public class MealEntity {
 
     // Constructor, no primary key id
     @Ignore
-    public MealEntity(String mealItems, String mealName, Double mCals, Double mCarbs, Double mPro,
+    public MealEntity(String portionedIds, String mealName, Double mCals, Double mCarbs, Double mPro,
                       Double mFat){
-        this.mealItems = mealItems;
+        this.portionedIds = portionedIds;
         this.mealName = mealName;
         this.mCals = mCals;
         this.mCarbs = mCarbs;
@@ -36,10 +36,10 @@ public class MealEntity {
     }
 
     // Constructor with primary key int id
-    public MealEntity(int mealId, String mealItems, String mealName, Double mCals, Double mCarbs,
+    public MealEntity(int mealId, String portionedIds, String mealName, Double mCals, Double mCarbs,
                       Double mPro, Double mFat){
         this.mealId = mealId;
-        this.mealItems = mealItems;
+        this.portionedIds = portionedIds;
         this.mealName = mealName;
         this.mCals = mCals;
         this.mCarbs = mCarbs;
@@ -53,7 +53,7 @@ public class MealEntity {
         return mealId;
     }
 
-    public String getMealItems() { return mealItems; }
+    public String getPortionedIds() { return portionedIds; }
 
     public String getMealName(){
         return mealName;
@@ -80,7 +80,7 @@ public class MealEntity {
         this.mealId = mealId;
     }
 
-    public void setMealItems(String mealItems) { this.mealItems = mealItems; }
+    public void setPortionedIds(String portionedIds) { this.portionedIds = portionedIds; }
 
     public void setMealName(String mealName) {
         this.mealName = mealName;

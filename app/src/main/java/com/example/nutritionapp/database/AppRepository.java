@@ -49,17 +49,22 @@ public class AppRepository {
         return mDb.measureTypeDAO().getAll();
     }
 
-    private LiveData<List<PortionedEntity>> getAllPortions() {
+    public LiveData<List<PortionedEntity>> getAllPortions() {
         return mDb.portionDAO().getAll();
     }
 
-    private LiveData<List<MealEntity>> getAllMeals() {
+    public LiveData<List<MealEntity>> getAllMeals() {
         return mDb.mealDAO().getAll();
     }
 
-    private LiveData<List<ConsumedMealEntity>> getAllConsumed() {
+    public LiveData<List<ConsumedMealEntity>> getAllConsumed() {
         return mDb.consumedMealDAO().getAll();
     }
 
+    public ConsumedMealEntity getConsumedById(int consumedId) { return mDb.consumedMealDAO().getConsumedMealById(consumedId); }
+    public FoodEntity getFoodById(int foodId) { return mDb.foodDAO().getFoodById(foodId); }
+    public MealEntity getMealById(int mealId) { return mDb.mealDAO().getMealById(mealId); }
+    public MeasureTypeEntity getMeasureTypeById(int measureId) { return mDb.measureTypeDAO().getMeasureTypeById(measureId); }
+    public PortionedEntity getPortionById(int portionedId){ return mDb.portionDAO().getPortionById(portionedId); }
 
 }
