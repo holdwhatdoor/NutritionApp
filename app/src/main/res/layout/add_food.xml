@@ -58,6 +58,7 @@
                 android:text="@string/meas_type"/>
 
             <RadioGroup
+                android:id="@+id/af_mt_rdo_grp"
                 android:layout_marginLeft="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -69,7 +70,7 @@
                     android:text="@string/oz"/>
 
                 <RadioButton
-                    android:id="@+id/radio_oz"
+                    android:id="@+id/af_radio_oz"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="25dp"/>
@@ -80,7 +81,7 @@
                     android:text="@string/gram"/>
 
                 <RadioButton
-                    android:id="@+id/radio_g"
+                    android:id="@+id/af_radio_g"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 

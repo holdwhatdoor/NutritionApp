@@ -41,7 +41,7 @@
                         android:textSize="24sp" />
 
                     <TextView
-                        android:id="@+id/exercise_lbl"
+                        android:id="@+id/workout_lbl"
                         android:layout_width="190dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8sp"
