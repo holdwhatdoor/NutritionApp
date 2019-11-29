@@ -1,5 +1,6 @@
 package com.example.nutritionapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,9 +23,10 @@ import java.util.List;
 public class AddFoodPage extends AppCompatActivity implements View.OnClickListener {
 
     AppRepository appRepo;
-    List<FoodEntity> allFoods = (List<FoodEntity>) appRepo.mFoods;
+    List<FoodEntity> allFoods;
 
     EditText foodNmEdit;
+
     RadioGroup measureType;
     RadioButton oz;
     RadioButton g;
@@ -66,20 +69,78 @@ public class AddFoodPage extends AppCompatActivity implements View.OnClickListen
         clearBtn.setOnClickListener(this);
     }
 
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.af_add_btn:
+                if(validInput()){
+                    String foodName = foodNmEdit.getText().toString();
+                    Double cals = Double.parseDouble(calories.getText().toString());
+                    Double carbos = Double.parseDouble(carbs.getText().toString());
+                    Double pro = Double.parseDouble(protein.getText().toString());
+                    Double fats = Double.parseDouble(fat.getText().toString());
+                    String baseMeas = getSelectedMeasure();
 
+                    FoodEntity newFood = new FoodEntity(foodName, cals, carbos, pro, fats, baseMeas);
+                    appRepo.insertFood(newFood);
+
+                    foodNmEdit.getText().clear();
+                    calories.getText().clear();
+                    carbs.getText().clear();
+                    protein.getText().clear();
+                    fat.getText().clear();
+                    measureType.clearCheck();
+
+                    Context context = getApplicationContext();
+                    String text = "Insert Successful";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+
+                    allFoods = (List<FoodEntity>) appRepo.mFoods;
+
+                    String foodsTxt = listDBFoodInfo(allFoods);
+                    int dbDuration = Toast.LENGTH_LONG;
+                    Toast dbToast = Toast.makeText(context,foodsTxt, dbDuration);
+                    dbToast.show();
+
+                }
                 break;
             case R.id.af_cancel_btn:
                 Intent dietIntent = new Intent(this, DietPage.class);
                 this.startActivity(dietIntent);
                 break;
             case R.id.af_clear_btn:
+                foodNmEdit.getText().clear();
+                calories.getText().clear();
+                carbs.getText().clear();
+                protein.getText().clear();
+                fat.getText().clear();
+                measureType.clearCheck();
                 break;
         }
+    }
+
+    public String listDBFoodInfo(List<FoodEntity> foods){
+        String foodList = null;
+        if(foods !=null) {
+            for (int i = 0; i < foods.size(); i++){
+                FoodEntity foodEntity = foods.get(i);
+                int foodId = foodEntity.getFoodId();
+                String foodName = foodEntity.getFoodName();
+                Double cals = foodEntity.getCalories();
+                Double carbs = foodEntity.getCarbs();
+                Double protein = foodEntity.getProtein();
+                Double fats = foodEntity.getFat();
+                String meas = foodEntity.getBaseMeasure();
+
+                foodList = "Food Id: " + foodId + ", Food name: " + foodName + ", Calories: " + cals +
+                        ", Carbs: " + carbs + ", Protein: " + protein + ", Fat: " + fats + ", Base Measure: " +
+                        meas;
+                foodList = foodList + "\n";
+             }
+        }
+        return foodList;
     }
 
     private boolean duplicateFoodEntry(FoodEntity newFood){
@@ -112,8 +173,22 @@ public class AddFoodPage extends AppCompatActivity implements View.OnClickListen
             validInput = false;
             emptyFat();
         }
-
+        if(!oz.isChecked() && !g.isChecked()){
+            validInput = false;
+            noMeasureSelected();
+        }
         return validInput;
+    }
+
+    public String getSelectedMeasure(){
+        String selectedMeasure = null;
+        if(oz.isChecked()){
+            selectedMeasure = "ounces";
+        }
+        else if(g.isChecked()){
+            selectedMeasure = "grams";
+        }
+        return selectedMeasure;
     }
 
     public void emptyFoodName(){
@@ -159,6 +234,15 @@ public class AddFoodPage extends AppCompatActivity implements View.OnClickListen
         emptyInput.setPositiveButton("OK", (dialog, which) -> {
         });
         emptyInput.create().show();
+    }
+
+    public void noMeasureSelected(){
+        AlertDialog.Builder noneSelected = new AlertDialog.Builder(this);
+        noneSelected.setTitle("No Measure Type selected.");
+        noneSelected.setMessage("No base measure type selected.  Please select a measure type.");
+        noneSelected.setPositiveButton("OK", (dialog, which) -> {
+        });
+        noneSelected.create().show();
     }
 
 }

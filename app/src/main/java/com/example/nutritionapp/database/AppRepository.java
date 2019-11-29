@@ -60,4 +60,17 @@ public class AppRepository {
     public MealEntity getMealById(int mealId) { return mDb.mealDAO().getMealById(mealId); }
     public PortionedEntity getPortionById(int portionedId){ return mDb.portionDAO().getPortionById(portionedId); }
 
+    public void insertFood(final FoodEntity food){
+        executor.execute(new Runnable() {
+            @Override
+            public void run() { mDb.foodDAO().insertFood(food);}
+        });
+    }
+
+    public void insertPortions(final PortionedEntity portion){
+        executor.execute(new Runnable() {
+            @Override
+            public void run() { mDb.portionDAO().insertPortion(portion);}
+        });
+    }
 }

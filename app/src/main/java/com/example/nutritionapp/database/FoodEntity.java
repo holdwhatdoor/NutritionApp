@@ -16,7 +16,7 @@ public class FoodEntity {
     private double carbs;
     private double protein;
     private double fat;
-    private double baseMeasure;
+    private String baseMeasure;
 
     // Empty constructor
     @Ignore
@@ -24,7 +24,7 @@ public class FoodEntity {
 
     // Constructor, no primary key id
     @Ignore
-    public FoodEntity(String foodName, Double calories, Double carbs, Double protein, Double fat, Double baseMeasure){
+    public FoodEntity(String foodName, Double calories, Double carbs, Double protein, Double fat, String baseMeasure){
         this.foodName = foodName;
         this.calories = calories;
         this.carbs = carbs;
@@ -35,7 +35,7 @@ public class FoodEntity {
 
     // Constructor with primary key id
     public FoodEntity(int foodId, String foodName, Double calories, Double carbs, Double protein, Double fat,
-                      Double baseMeasure){
+                      String baseMeasure){
         this.foodId = foodId;
         this.foodName = foodName;
         this.calories = calories;
@@ -70,7 +70,7 @@ public class FoodEntity {
         return fat;
     }
 
-    public double getBaseMeasure(){
+    public String getBaseMeasure(){
         return baseMeasure;
     }
 
@@ -99,7 +99,7 @@ public class FoodEntity {
         this.fat = fat;
     }
 
-    public void setBaseMeasure(double baseMeasure) {
+    public void setBaseMeasure(String baseMeasure) {
         this.baseMeasure = baseMeasure;
     }
 }
