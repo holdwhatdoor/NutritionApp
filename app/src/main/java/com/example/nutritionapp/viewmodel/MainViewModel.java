@@ -11,7 +11,6 @@ import com.example.nutritionapp.database.AppRepository;
 import com.example.nutritionapp.database.ConsumedMealEntity;
 import com.example.nutritionapp.database.FoodEntity;
 import com.example.nutritionapp.database.MealEntity;
-import com.example.nutritionapp.database.MeasureTypeEntity;
 import com.example.nutritionapp.database.PortionedEntity;
 
 import java.util.List;

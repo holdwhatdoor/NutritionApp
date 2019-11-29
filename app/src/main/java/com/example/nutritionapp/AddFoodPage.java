@@ -9,10 +9,19 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.nutritionapp.database.AppRepository;
+import com.example.nutritionapp.database.FoodEntity;
+
+import java.util.List;
+
 public class AddFoodPage extends AppCompatActivity implements View.OnClickListener {
+
+    AppRepository appRepo;
+    List<FoodEntity> allFoods = (List<FoodEntity>) appRepo.mFoods;
 
     EditText foodNmEdit;
     RadioGroup measureType;
@@ -62,6 +71,7 @@ public class AddFoodPage extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.af_add_btn:
+
                 break;
             case R.id.af_cancel_btn:
                 Intent dietIntent = new Intent(this, DietPage.class);
@@ -71,4 +81,84 @@ public class AddFoodPage extends AppCompatActivity implements View.OnClickListen
                 break;
         }
     }
+
+    private boolean duplicateFoodEntry(FoodEntity newFood){
+        boolean isDuplicate = false;
+
+
+        return isDuplicate;
+    }
+
+    private boolean validInput(){
+        boolean validInput = true;
+
+        if(foodNmEdit.getText() == null){
+            validInput = false;
+            emptyFoodName();
+        }
+        if(calories.getText() == null) {
+            validInput = false;
+            emptyCals();
+        }
+        if(carbs.getText() == null){
+            validInput = false;
+            emptyCarbs();
+        }
+        if(protein.getText() == null){
+            validInput = false;
+            emptyProtein();
+        }
+        if(fat.getText() == null){
+            validInput = false;
+            emptyFat();
+        }
+
+        return validInput;
+    }
+
+    public void emptyFoodName(){
+        AlertDialog.Builder emptyInput = new AlertDialog.Builder(this);
+        emptyInput.setTitle("Food name input blank.");
+        emptyInput.setMessage("Please fill in a valid food name.");
+        emptyInput.setPositiveButton("OK", (dialog, which) -> {
+        });
+        emptyInput.create().show();
+    }
+
+    public void emptyCals(){
+        AlertDialog.Builder emptyInput = new AlertDialog.Builder(this);
+        emptyInput.setTitle("Calories input blank.");
+        emptyInput.setMessage("Please fill in a valid calorie quantity.");
+        emptyInput.setPositiveButton("OK", (dialog, which) -> {
+        });
+        emptyInput.create().show();
+    }
+
+    public void emptyCarbs(){
+        AlertDialog.Builder emptyInput = new AlertDialog.Builder(this);
+        emptyInput.setTitle("Carbs input blank.");
+        emptyInput.setMessage("Please fill in a valid calorie quantity.");
+        emptyInput.setPositiveButton("OK", (dialog, which) -> {
+        });
+        emptyInput.create().show();
+    }
+
+    public void emptyProtein(){
+        AlertDialog.Builder emptyInput = new AlertDialog.Builder(this);
+        emptyInput.setTitle("Protein input blank.");
+        emptyInput.setMessage("Please fill in a valid protein quantity.");
+        emptyInput.setPositiveButton("OK", (dialog, which) -> {
+        });
+        emptyInput.create().show();
+    }
+
+    public void emptyFat(){
+        AlertDialog.Builder emptyInput = new AlertDialog.Builder(this);
+        emptyInput.setTitle("Fat input blank.");
+        emptyInput.setMessage("Please fill in a valid fat quantity.");
+        emptyInput.setPositiveButton("OK", (dialog, which) -> {
+        });
+        emptyInput.create().show();
+    }
+
 }

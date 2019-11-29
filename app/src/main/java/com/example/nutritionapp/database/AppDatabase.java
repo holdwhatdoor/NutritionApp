@@ -10,9 +10,9 @@ import androidx.room.TypeConverters;
 import com.example.nutritionapp.utilities.DataConverter;
 
 
-@Database(entities = {FoodEntity.class, MeasureTypeEntity.class, PortionedEntity.class,  MealEntity.class,
+@Database(entities = {FoodEntity.class, PortionedEntity.class,  MealEntity.class,
         ConsumedMealEntity.class},
-        version = 1, exportSchema = false)
+        version = 2, exportSchema = false)
 @TypeConverters(DataConverter.class)
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -23,8 +23,6 @@ public abstract class AppDatabase extends RoomDatabase {
 
 
     public abstract FoodDAO foodDAO();
-
-    public abstract MeasureTypeDAO measureTypeDAO();
 
     public abstract PortionDAO portionDAO();
 

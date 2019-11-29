@@ -40,7 +40,6 @@ public class DataConverter {
 
         String portionId = Integer.toString(mealItem.getPortionedId());
         String foodId = Integer.toString(mealItem.getFoodId());
-        String measId = Integer.toString(mealItem.getMeasureTypeId());
         String descr = mealItem.getDescription();
         String quantity = Double.toString(mealItem.getQuantity());
         String cals = Double.toString(mealItem.getPCals());
@@ -48,7 +47,7 @@ public class DataConverter {
         String pro = Double.toString(mealItem.getPPro());
         String fat = Double.toString(mealItem.getPFat());
 
-        portionString = portionId + "," + foodId + "," + measId + "," + descr + "," + quantity + "," +
+        portionString = portionId + "," + foodId + "," + descr + "," + quantity + "," +
                 cals + "," + carbs + "," + pro + "," + fat + "..";
 
         return portionString;

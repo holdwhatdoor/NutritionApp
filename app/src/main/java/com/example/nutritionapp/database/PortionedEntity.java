@@ -13,9 +13,8 @@ public class PortionedEntity {
     private int portionedId = 0;
     @ForeignKey(entity = FoodEntity.class, parentColumns = "foodId", childColumns = "portionedId")
     private int foodId;
-    @ForeignKey(entity = MeasureTypeEntity.class, parentColumns = "measureTypeId", childColumns = "portionedId")
-    private int measureTypeId;
     // Table Columns
+    private String measureType;
     private Double quantity;
     private String description;
     private Double pCals;
@@ -29,10 +28,10 @@ public class PortionedEntity {
 
     // Constructor, no primary key id
     @Ignore
-    public PortionedEntity(int foodID, int measTypeID, Double quantity, String description, Double pCals,
+    public PortionedEntity(int foodID, String measureType, Double quantity, String description, Double pCals,
                            Double pCarbs, Double pPro, Double pFat){
         this.foodId = foodID;
-        this.measureTypeId = measTypeID;
+        this.measureType = measureType;
         this.quantity = quantity;
         this.description = description;
         this.pCals = pCals;
@@ -42,11 +41,11 @@ public class PortionedEntity {
     }
 
     // Constructor with primary key id
-    public PortionedEntity(int portionedId, int foodId, int measureTypeId, Double quantity, String description,
+    public PortionedEntity(int portionedId, int foodId, String measureType, Double quantity, String description,
                            Double pCals, Double pCarbs, Double pPro, Double pFat){
         this.portionedId = portionedId;
         this.foodId = foodId;
-        this.measureTypeId = measureTypeId;
+        this.measureType = measureType;
         this.quantity = quantity;
         this.description = description;
         this.pCals = pCals;
@@ -64,8 +63,8 @@ public class PortionedEntity {
         return foodId;
     }
 
-    public int getMeasureTypeId(){
-        return measureTypeId;
+    public String getMeasureType(){
+        return measureType;
     }
 
     public Double getQuantity(){
@@ -101,8 +100,8 @@ public class PortionedEntity {
         this.foodId = foodId;
     }
 
-    public void setMeasureTypeId(int measureTypeId) {
-        this.measureTypeId = measureTypeId;
+    public void setMeasureType(String measureType) {
+        this.measureType = measureType;
     }
 
     public void setQuantity(Double quantity) {
