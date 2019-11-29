@@ -35,11 +35,6 @@ public class MainViewModel extends AndroidViewModel {
     public LiveData<MealEntity> mMeal;
     public LiveData<List<MealEntity>> mMeals;
 
-    public MutableLiveData<MeasureTypeEntity> mLiveMeas = new MutableLiveData<>();
-    public MutableLiveData<List<MeasureTypeEntity>> mLiveMeasures = new MutableLiveData<>();
-    public LiveData<MeasureTypeEntity> mMeas;
-    public LiveData<List<MeasureTypeEntity>> mMeasures;
-
     public MutableLiveData<PortionedEntity> mLivePortion = new MutableLiveData<>();
     public MutableLiveData<List<PortionedEntity>> mLivePortions = new MutableLiveData<>();
     public LiveData<PortionedEntity> mPortion;
@@ -55,7 +50,6 @@ public class MainViewModel extends AndroidViewModel {
         mConsumed = mRepo.mConsumed;
         mFoods = mRepo.mFoods;
         mMeals = mRepo.mMeals;
-        mMeasures = mRepo.mMeasureTypes;
         mPortions = mRepo.mPortions;
 
     }
