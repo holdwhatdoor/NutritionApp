@@ -8,6 +8,7 @@ import com.example.nutritionapp.database.AppRepository;
 import com.example.nutritionapp.database.PortionDAO;
 import com.example.nutritionapp.database.PortionedEntity;
 
+import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -16,6 +17,19 @@ import java.util.Date;
 import java.util.Locale;
 
 public class DataConverter {
+
+    @TypeConverter
+    public static String doubleToString(Double value){
+        String json = null;
+        json = Double.toString(value);
+        return json;
+    }
+
+    public static Double stringToDouble(String value){
+        Double dbl = null;
+        dbl = Double.parseDouble(value);
+        return dbl;
+    }
 
     @TypeConverter
     public static String arrayToString(PortionedEntity[] mealItems) {

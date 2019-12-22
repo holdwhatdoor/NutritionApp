@@ -12,10 +12,10 @@ public class FoodEntity {
     private int foodId = 0;
     // Table Columns
     private String foodName;
-    private double calories;
-    private double carbs;
-    private double protein;
-    private double fat;
+    private String calories;
+    private String carbs;
+    private String protein;
+    private String fat;
     private String baseMeasure;
 
     // Empty constructor
@@ -24,7 +24,7 @@ public class FoodEntity {
 
     // Constructor, no primary key id
     @Ignore
-    public FoodEntity(String foodName, Double calories, Double carbs, Double protein, Double fat, String baseMeasure){
+    public FoodEntity(String foodName, String calories, String carbs, String protein, String fat, String baseMeasure){
         this.foodName = foodName;
         this.calories = calories;
         this.carbs = carbs;
@@ -34,7 +34,7 @@ public class FoodEntity {
     }
 
     // Constructor with primary key id
-    public FoodEntity(int foodId, String foodName, Double calories, Double carbs, Double protein, Double fat,
+    public FoodEntity(int foodId, String foodName, String calories, String carbs, String protein, String fat,
                       String baseMeasure){
         this.foodId = foodId;
         this.foodName = foodName;
@@ -54,19 +54,19 @@ public class FoodEntity {
         return foodName;
     }
 
-    public double getCalories(){
+    public String getCalories(){
         return calories;
     }
 
-    public double getCarbs(){
+    public String getCarbs(){
         return carbs;
     }
 
-    public double getProtein(){
+    public String getProtein(){
         return protein;
     }
 
-    public double getFat(){
+    public String getFat(){
         return fat;
     }
 
@@ -83,19 +83,19 @@ public class FoodEntity {
         this.foodName = foodName;
     }
 
-    public void setCalories(double calories) {
+    public void setCalories(String calories) {
         this.calories = calories;
     }
 
-    public void setCarbs(double carbs) {
+    public void setCarbs(String carbs) {
         this.carbs = carbs;
     }
 
-    public void setProtein(double protein) {
+    public void setProtein(String protein) {
         this.protein = protein;
     }
 
-    public void setFat(double fat) {
+    public void setFat(String fat) {
         this.fat = fat;
     }
 

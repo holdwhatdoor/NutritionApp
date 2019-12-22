@@ -3,6 +3,7 @@ package com.example.nutritionapp;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.nutritionapp.database.AppRepository;
 import com.example.nutritionapp.database.FoodEntity;
+import com.example.nutritionapp.utilities.DataConverter;
 import com.example.nutritionapp.viewmodel.AddFoodViewModel;
 
 import java.util.ArrayList;
@@ -80,10 +82,10 @@ public class AddFoodPage extends AppCompatActivity implements View.OnClickListen
             case R.id.af_add_btn:
                 if(validInput()){
                     String foodName = foodNmEdit.getText().toString();
-                    Double cals = Double.parseDouble(calories.getText().toString());
-                    Double carbos = Double.parseDouble(carbs.getText().toString());
-                    Double pro = Double.parseDouble(protein.getText().toString());
-                    Double fats = Double.parseDouble(fat.getText().toString());
+                    String cals = calories.getText().toString();
+                    String carbos = carbs.getText().toString();
+                    String pro = protein.getText().toString();
+                    String fats = fat.getText().toString();
                     String baseMeas = getSelectedMeasure();
 
                     FoodEntity newFood = new FoodEntity(foodName, cals, carbos, pro, fats, baseMeas);
@@ -136,11 +138,12 @@ public class AddFoodPage extends AppCompatActivity implements View.OnClickListen
                 FoodEntity foodEntity = foods.get(i);
                 int foodId = foodEntity.getFoodId();
                 String foodName = foodEntity.getFoodName();
-                Double cals = foodEntity.getCalories();
-                Double carbs = foodEntity.getCarbs();
-                Double protein = foodEntity.getProtein();
-                Double fats = foodEntity.getFat();
+                String cals = foodEntity.getCalories();
+                String carbs = foodEntity.getCarbs();
+                String protein = foodEntity.getProtein();
+                String fats = foodEntity.getFat();
                 String meas = foodEntity.getBaseMeasure();
+
 
                 foodList = "Food Id: " + foodId + ", Food name: " + foodName + ", Calories: " + cals +
                         ", Carbs: " + carbs + ", Protein: " + protein + ", Fat: " + fats + ", Base Measure: " +
