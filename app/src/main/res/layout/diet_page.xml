@@ -16,7 +16,6 @@
             android:text="@string/diet_title"
             android:textSize="24dp" />
 
-
     </RelativeLayout>
 
     <RelativeLayout
@@ -25,25 +24,52 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/dp_hdr">
 
+        <LinearLayout
+            android:id="@+id/dp_bdy1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/dp_add_food_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_food" />
+
+            <Button
+                android:id="@+id/dp_create_meal_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/create_meal"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/dp_bdy2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dp_body">
+
         <ScrollView
             android:id="@+id/dp_sv_body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:id="@+id/dp_bdy1"
+            <RelativeLayout
+                android:id="@+id/dp_sv_rel"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center">
+                android:layout_height="wrap_content">
 
-                <Button
-                    android:id="@+id/dp_add_food_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/add_food" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/dp_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            </LinearLayout>
+                </androidx.recyclerview.widget.RecyclerView>
 
+            </RelativeLayout>
         </ScrollView>
     </RelativeLayout>
 
@@ -58,7 +84,7 @@
             android:id="@+id/dp_exit_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/exit"/>
+            android:text="@string/exit" />
 
     </RelativeLayout>
 

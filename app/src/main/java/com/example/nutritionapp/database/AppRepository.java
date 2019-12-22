@@ -67,6 +67,13 @@ public class AppRepository {
         });
     }
 
+    public void deleteFood(final FoodEntity food){
+        executor.execute(new Runnable() {
+            @Override
+            public void run() { mDb.foodDAO().deleteFood(food);}
+        });
+    }
+
     public void insertPortions(final PortionedEntity portion){
         executor.execute(new Runnable() {
             @Override

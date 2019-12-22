@@ -14,16 +14,21 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.example.nutritionapp.database.AppRepository;
 import com.example.nutritionapp.database.FoodEntity;
+import com.example.nutritionapp.viewmodel.AddFoodViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Observer;
 
 public class AddFoodPage extends AppCompatActivity implements View.OnClickListener {
 
     AppRepository appRepo;
-    List<FoodEntity> allFoods;
+    AddFoodViewModel foodVM;
+    List<FoodEntity> foodData = new ArrayList<>();
 
     EditText foodNmEdit;
 
@@ -82,7 +87,10 @@ public class AddFoodPage extends AppCompatActivity implements View.OnClickListen
                     String baseMeas = getSelectedMeasure();
 
                     FoodEntity newFood = new FoodEntity(foodName, cals, carbos, pro, fats, baseMeas);
-                    appRepo.insertFood(newFood);
+                    System.out.println("New Food: " + newFood.getFoodId() + ", " + newFood.getFoodName() +
+                            ", " + newFood.getCalories() + "cals, " + newFood.getCarbs() + "carbs, " +
+                            newFood.getProtein() + "pro, " + newFood.getFat() + "fat, " + newFood.getBaseMeasure());
+                    foodVM.insertFood(newFood);
 
                     foodNmEdit.getText().clear();
                     calories.getText().clear();
@@ -97,9 +105,9 @@ public class AddFoodPage extends AppCompatActivity implements View.OnClickListen
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
 
-                    allFoods = (List<FoodEntity>) appRepo.mFoods;
+                    foodData = (List<FoodEntity>) appRepo.mFoods;
 
-                    String foodsTxt = listDBFoodInfo(allFoods);
+                    String foodsTxt = listDBFoodInfo(foodData);
                     int dbDuration = Toast.LENGTH_LONG;
                     Toast dbToast = Toast.makeText(context,foodsTxt, dbDuration);
                     dbToast.show();

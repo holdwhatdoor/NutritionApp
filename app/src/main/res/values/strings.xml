@@ -13,6 +13,7 @@
 
     // Diet page strings
     <string name="diet_title">Diet</string>
+    <string name="create_meal">Create Meal</string>
 
     // Add Food page strings
     <string name="add_food">Add Food</string>
@@ -20,6 +21,15 @@
     <string name="meas_type">Measure Type: </string>
     <string name="oz">oz: </string>
     <string name="gram">gram: </string>
+
+    // Daily Nutrition
+    <string name="nutrition_title">Daily Nutrition</string>
+    <string name="date_lbl">Date</string>
+    <string name="calories">Calories</string>
+    <string name="carbs">Carbs</string>
+    <string name="pro">Protein</string>
+    <string name="fat">Fat</string>
+    <string name="zero">0</string>
 
     // Meal Item strings
     <string name="meal_name">Meal Name</string>

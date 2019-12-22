@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainHolder> {
-
+    String TAG = "MainAdapter";
 
     @NonNull
     @Override
